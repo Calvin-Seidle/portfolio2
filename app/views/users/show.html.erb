@@ -1,3 +1,31 @@
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+
+<div class="img-responsive">
+	<%= image_tag @user.cover.url(:cover1), class: "cover" %>
+</div>
+<div class="panel panel-default">
+	<%= image_tag @user.avatar.url(:small), class: "avatar" %>
+</div>
+<br><br><br><hr>
+<div class="col-xs-12 col-md-6">
+	<h4>User:</h4> <span class="text-info"><%= @user.name %> <%= @user.surname %></span>
+	<h4>Gender:</h4> <span class="text-info"><%= @user.gender if @user.gender %></span>
+	<h4>Date of Birth:</h4> <span class="text-info"><%= @user.dob if @user.dob %></span>
+	<h4>Email:</h4> <span class="text-info"><%= @user.email if @user.email %></span>
+	<h4>About:</h4> <span class="text-info"><%= @user.about if @user.about %></span>
+</div>
+
+<div class="col-xs-12 col-md-6">
+	<h4>Times signed in:</h4> <span class="text-info"><%= @user.sign_in_count %>	</span>
+	<h4>Session started at:</h4> <span class="text-info"><%= @user.current_sign_in_at %></span>
+	<h4>Last session at:</h4> <span class="text-info"><%= @user.last_sign_in_at %></span>
+	<h4>Current IP:</h4> <span class="text-info"><%= @user.current_sign_in_ip %></span>
+	<h4>Last IP:</h4> <span class="text-info"><%= @user.last_sign_in_ip %></span>
+</div>
+
+
+<div class="col-xs-12 col-md-12">
+<hr>
+	Posts (<%= @user.posts.count %>)<br>
+		<%= @user.posts.each do %>
+	<% end %>
+</div>

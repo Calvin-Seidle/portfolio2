@@ -23,6 +23,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+group :development do
+  gem 'rails_layout'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 gem 'devise'
@@ -30,6 +34,8 @@ gem 'high_voltage'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
-group :development do
-  gem 'rails_layout'
-end
+gem 'rails_admin'
+gem 'cancan'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'paperclip'

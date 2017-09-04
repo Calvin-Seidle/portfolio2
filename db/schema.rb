@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904085112) do
+ActiveRecord::Schema.define(version: 20170904101110) do
+
+  create_table "genders", force: :cascade do |t|
+    t.string "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.string "caption"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,8 +52,23 @@ ActiveRecord::Schema.define(version: 20170904085112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "surname"
+    t.text "about"
+    t.date "dob"
+    t.integer "gender_id"
+    t.integer "role_id"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string "cover_file_name"
+    t.string "cover_content_type"
+    t.integer "cover_file_size"
+    t.datetime "cover_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["gender_id"], name: "index_users_on_gender_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
 end
